@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <form action='./record.jsp' method='post'>
+    <p>
+      <select name="type1">
+        <option value="book_name">서명</option>
+        <option value="author_name">저자</option>
+      </select>
+      <input type="text" name="input1">
+    </p>
+    <p>
+      <select name="type2">
+        <option value="book_name">서명</option>
+        <option value="author_name" selected>저자</option>
+      </select>
+      <input type="text" name="input2">
+    </p>
+    <p>
+      소장처
+      <select name="library">
+        <option value="0">전체</option>
+        <option value="1">1번 도서관</option>
+        <option value="2">2번 도서관</option>
+        <option value="3">3번 도서관</option>
+        <option value="4">4번 도서관</option>
+        <option value="5">5번 도서관</option>
+      </select>
+    </p>
+    <p>
+      대출
+      <input type="date" name="start">
+      ~
+      <input type="date" name="end">
+    </p>
+    <p><input type="submit" value="검색"></p>
+  </form>
+</body>
+</html>
