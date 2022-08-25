@@ -15,14 +15,20 @@
     		ResultSet rs = null;
     		Statement stmt = null;
 
+        //검색 조건 (저자, 서명, 출판사)
     		String type1 = request.getParameter("type1");
         String type2 = request.getParameter("type2");
         String type3 = request.getParameter("type3");
+
+        //입력값
         String search1 = request.getParameter("input1");
         String search2 = request.getParameter("input2");
         String search3 = request.getParameter("input3");
+
+        //추가조건 (and, or, not)
         String option1 = request.getParameter("option1");
         String option2 = request.getParameter("option2");
+
         String library = request.getParameter("library");
         String start_year = request.getParameter("start");
         String end_year = request.getParameter("end");
@@ -40,39 +46,13 @@
             sql = sql + " where "+type1+" like '%"+search1+"%'";
           }
 
-          //검색 조건2
+          //검색2
           if(!search2.trim().isEmpty()){
-            if(option1.equals("NOT")){
-              if("author_name".equals(type2)){
-                sql = sql + " and authors.isbn in (select isbn from authors where author_name not like '%"+search2+"%')";
-              }else{
-                sql = sql + " and "+type2+" not like '%"+search2+"%'";
-              }
-            }
-            else{
-              if("author_name".equals(type2)){
-                sql = sql + " " +option1 +" authors.isbn in (select isbn from authors where author_name like '%"+search2+"%')";
-              }else{
-                sql = sql + " " +option1 +" " + type2 + " like '%"+search2+"%'";
-              }
-            }
-            //검색조건3
-            if(!search3.trim().isEmpty()){
-              if(option2.equals("NOT")){
-                if("author_name".equals(type3)){
-                  sql = sql + " and authors.isbn in (select isbn from authors where author_name not like '%"+search3+"%')";
-                }else{
-                  sql = sql + " and "+type3+" not like '%"+search3+"%'";
-                }
-              }
-              else{
-                if("author_name".equals(type3)){
-                  sql = sql + " " +option2 +" authors.isbn in (select isbn from authors where author_name like '%"+search3+"%')";
-                }else{
-                  sql = sql + " " +option2 +" " + type3 + " like '%"+search3+"%'";
-                }
-              }
-            }
+            sql = sql + addSQL(type2, search2, option1);
+          }
+          //검색3
+          if(!search3.trim().isEmpty()){
+            sql = sql + addSQL(type3, search3, option2);
           }
           //소장처
           if(!library.equals("0")){
@@ -141,3 +121,24 @@
     <a href="main.jsp">메인으로 돌아가기</a>
   </body>
 </html>
+<%!
+/** 옵션에 따른 검색 sql*/
+public String addSQL(String type, String inputValue, String option){
+  String sql = "";
+  if(option.equals("NOT")){
+    if("author_name".equals(type)){
+      sql = " and authors.isbn in (select isbn from authors where author_name not like '%"+inputValue+"%')";
+    }else{
+      sql = " and "+type+" not like '%"+inputValue+"%'";
+    }
+  }
+  else{
+    if("author_name".equals(type)){
+      sql = " " +option +" authors.isbn in (select isbn from authors where author_name like '%"+inputValue+"%')";
+    }else{
+      sql = " " +option +" " + type + " like '%"+inputValue+"%'";
+    }
+  }
+  return sql;
+}
+%>
