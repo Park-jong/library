@@ -4,6 +4,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
   </head>
   <body>
     <%@ include file="dbconn.jsp" %>
@@ -11,6 +12,8 @@
     	<%
       //도서검색 페이지
     		request.setCharacterEncoding("utf-8");
+
+        String member_id = (String)session.getAttribute("id");
 
     		ResultSet rs = null;
     		Statement stmt = null;
@@ -89,14 +92,14 @@
             String stat = rs.getString("stat");
             if(!book_id.equals(book_id_check)){
     	%>
-    	<tr>
-        <td><%=book_id %></td>
+    	<tr class="datarow">
+        <td class="book_id"><%=book_id %></td>
     		<td><%=book %></td>
     		<td><%=author %></td>
     		<td><%=publisher %></td>
     		<td><%=publish_year %></td>
     		<td><%=lib %></td>
-        <td><%=stat %></td>
+        <td class="stat"><%=stat %></td>
     	</tr>
     	<%
               book_id_check = book_id;
@@ -117,8 +120,16 @@
     		}
     	%>
     </table>
+    <%
+    if (member_id != null){
+    %><form action="./loan.jsp" method="post" id="loanform">
+        <input type="hidden" name="book_id" id="book_id">
+      </form>
+    <%}
+    %>
     <a href="search.html">검색으로 돌아가기</a>
     <a href="main.jsp">메인으로 돌아가기</a>
+    <script src="search.js?ver=1"></script>
   </body>
 </html>
 <%!
