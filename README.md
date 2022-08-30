@@ -32,6 +32,7 @@
 #### 검색 화면에서 대출 가능 상태의 목록을 클릭하거나 대출 창에서 도서 등록 번호를 입력 시 대출 가능
 * 로그인 상태에서만 이용 가능
 * 이미 대출 중인 도서 대출 불가
+* 회원 당 동시에 3권까지 대출 가능
 
 ### 대출 연장
 <image src="https://user-images.githubusercontent.com/54964209/187379375-bfaa9112-66b9-49ff-9845-b60a0135c09b.png">
@@ -43,6 +44,30 @@
 * 이미 기간을 지났을 경우 연장 불가
 
 ### 도서 예약
+<image src="https://user-images.githubusercontent.com/54964209/187381098-63fe4b69-11a1-4632-b256-08c46b395eb2.png">
+
+#### 대출 중인 도서 예약
+* 로그인 상태에서만 이용 가능
+* 대출 가능한 책은 예약 불가
+  
 ### 예약 취소
+<image src="https://user-images.githubusercontent.com/54964209/187381941-6c5da4b3-01c5-4ce2-acbe-94acf03cb019.png">
+ 
+#### 예약중인 도서 예약 취소
+* 로그인 상태에서만 이용 가능
+* 체크박스 선택한 목록 동시에 취소 가능
+
 ### 도서 반납
+<image src="https://user-images.githubusercontent.com/54964209/187382577-ce5b8869-d5c0-4a03-af5b-b0abfcf5ddf8.png">
+  
+#### 대출 상태의 도서 반납
+* 로그인 상태에서만 이용 가능
+* 체크박스 선택한 목록 동시에 반납 가능
+  
 ### 대출 기록
+<image src="https://user-images.githubusercontent.com/54964209/187383947-e0556b15-644f-4fb6-88d3-81d4aa778c3f.png">
+<image src="https://user-images.githubusercontent.com/54964209/187383964-20bfbe2a-ad6e-4972-8d59-ee0009a76d67.png">
+  
+#### 조건을 통해 대출 기록 검색
+* 로그인 상태에서만 이용 가능
+* 조건을 입력하지 않을 시 모든 기록 출력
