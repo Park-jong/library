@@ -36,9 +36,10 @@
 ### 대출 연장
 <image src="https://user-images.githubusercontent.com/54964209/187379375-bfaa9112-66b9-49ff-9845-b60a0135c09b.png">
 <image src="https://user-images.githubusercontent.com/54964209/187379393-dff4d387-7721-4cd9-a8e7-1ad98f806722.png">
-#### 대출 중인 도서 대출 기간 연장
-* 로그인 상태에서만 이용 가능
-* 최대 3번 가능
+  
+#### 대출 중인 도서 대출 기간 연장   
+* 로그인 상태에서만 이용 가능   
+* 최대 3번 가능   
 * 이미 기간을 지났을 경우 연장 불가
 
 ### 도서 예약
