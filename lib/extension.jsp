@@ -46,9 +46,9 @@
     	%>
     	<tr>
         <td><%=book_id %></td>
-    		<td><%=book %></td>
-    		<td><%=publisher %></td>
-    		<td><%=publish_year %></td>
+        <td><%=book %></td>
+        <td><%=publisher %></td>
+        <td><%=publish_year %></td>
         <td><%=extension %></td>
         <td><%=returndate %></td>
     	</tr>
