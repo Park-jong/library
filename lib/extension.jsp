@@ -38,9 +38,9 @@
           out.println("</tr>");
           while(rs.next()){
             String book_id = rs.getString("bookid");
-    				String book = rs.getString("book_name");
-    				String publisher = rs.getString("publisher");
-    				String publish_year = rs.getString("publish_year");
+            String book = rs.getString("book_name");
+            String publisher = rs.getString("publisher");
+            String publish_year = rs.getString("publish_year");
             String extension = rs.getString("extension");
             String returndate = rs.getString("returndate");
     	%>
@@ -53,7 +53,7 @@
         <td><%=returndate %></td>
     	</tr>
     	<%
-    			}
+          }
 
         }catch (SQLException ex){
           out.println("테이블 호출이 실패했습니다.<br>");
