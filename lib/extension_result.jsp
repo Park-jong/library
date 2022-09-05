@@ -5,13 +5,13 @@
 <head>
 </head>
 <body>
-	<%@ include file="dbconn.jsp"%>
-	<%//연장 신청 결과%>
-	<%
-    	request.setCharacterEncoding("utf-8");
+  <%@ include file="dbconn.jsp"%>
+  <%//연장 신청 결과%>
+  <%
+      request.setCharacterEncoding("utf-8");
 
-    	ResultSet rs = null;
-    	Statement stmt = null;
+      ResultSet rs = null;
+      Statement stmt = null;
 
         String member_id = (String)session.getAttribute("id");
         //올바르지 않은 접근 login으로
@@ -19,13 +19,13 @@
           response.sendRedirect("login.html");
         }
         else{
-      		String book_id = request.getParameter("book_id");
+          String book_id = request.getParameter("book_id");
 
-      		try{
+          try{
             //체크한 목록 조건에 맞으면 연장
             String sql = "select extension from loan_records where book_id = "+book_id +" and member_id = "+member_id;
             stmt = conn.createStatement();
-  	  			rs = stmt.executeQuery(sql);
+            rs = stmt.executeQuery(sql);
 
             if(rs.next()){
               int extension = Integer.parseInt(rs.getString("extension"));
@@ -57,20 +57,20 @@
               out.println("<a href=\"extension.jsp\">입력으로 돌아가기</a>");
             }
 
-      		}catch (SQLException ex){
-      			out.println("테이블 호출이 실패했습니다.<br>");
-      			out.println("SQLException:"+ex.getMessage());
-      		}finally{
-      			if(rs!=null)
-      				rs.close();
-      			if(stmt!=null)
-      				stmt.close();
-      			if(conn!=null)
-      				conn.close();
-      		}
+          }catch (SQLException ex){
+            out.println("테이블 호출이 실패했습니다.<br>");
+            out.println("SQLException:"+ex.getMessage());
+          }finally{
+            if(rs!=null)
+              rs.close();
+            if(stmt!=null)
+              stmt.close();
+            if(conn!=null)
+              conn.close();
+          }
         }
-    	%>
-	<br>
-	<a href="main.jsp">메인으로 돌아가기</a>
+      %>
+  <br>
+  <a href="main.jsp">메인으로 돌아가기</a>
 </body>
 </html>

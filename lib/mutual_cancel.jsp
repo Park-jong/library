@@ -36,15 +36,15 @@
           out.println("</tr>");
           while(rs.next()){
             String book_id = rs.getString("book_id");
-    				String book = rs.getString("book_name");
-    	%>
-    	<tr>
+            String book = rs.getString("book_name");
+      %>
+      <tr>
         <td><input type="checkbox" name="check" value="<%=book_id %>"></td>
         <td><%=book_id %></td>
-    		<td><%=book %></td>
-    	</tr>
-    	<%
-    			}
+        <td><%=book %></td>
+      </tr>
+      <%
+          }
 
 
         }catch (SQLException ex){

@@ -7,12 +7,12 @@
   </head>
   <body>
     <%@ include file="dbconn.jsp" %>
-    	<%
+      <%
       //도서 대출 예약 페이지
-    		request.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding("utf-8");
 
-    		ResultSet rs = null;
-    		Statement stmt = null;
+        ResultSet rs = null;
+        Statement stmt = null;
 
         String member_id = (String)session.getAttribute("id");
         //올바르지 않은 접근 login으로
@@ -20,13 +20,13 @@
           response.sendRedirect("login.html");
         }
         else{
-      		String book_id = request.getParameter("book_id");
+          String book_id = request.getParameter("book_id");
 
-      		try{
+          try{
             //예약이 불가능 한 상황들 정리
             String sql = "select loan_stat from books where book_id = "+book_id;
             stmt = conn.createStatement();
-  	  			rs = stmt.executeQuery(sql);
+            rs = stmt.executeQuery(sql);
             //대출 불가능 상태
             String stat;
             rs.next();
@@ -86,19 +86,19 @@
               out.println("<br><a href=\"reservation.html\">입력으로 돌아가기</a>");
             }
 
-      		}catch (SQLException ex){
-      			out.println("테이블 호출이 실패했습니다.<br>");
-      			out.println("SQLException:"+ex.getMessage());
-      		}finally{
-      			if(rs!=null)
-      				rs.close();
-      			if(stmt!=null)
-      				stmt.close();
-      			if(conn!=null)
-      				conn.close();
-      		}
+          }catch (SQLException ex){
+            out.println("테이블 호출이 실패했습니다.<br>");
+            out.println("SQLException:"+ex.getMessage());
+          }finally{
+            if(rs!=null)
+              rs.close();
+            if(stmt!=null)
+              stmt.close();
+            if(conn!=null)
+              conn.close();
+          }
         }
-    	%>
+      %>
     <br>
     <a href="main.jsp">메인으로 돌아가기</a>
   </body>

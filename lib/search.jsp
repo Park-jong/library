@@ -9,17 +9,17 @@
   <body>
     <%@ include file="dbconn.jsp" %>
     <table>
-    	<%
+      <%
       //도서검색 페이지
-    		request.setCharacterEncoding("utf-8");
+        request.setCharacterEncoding("utf-8");
 
         String member_id = (String)session.getAttribute("id");
 
-    		ResultSet rs = null;
-    		Statement stmt = null;
+        ResultSet rs = null;
+        Statement stmt = null;
 
         //검색 조건 (저자, 서명, 출판사)
-    		String type1 = request.getParameter("type1");
+        String type1 = request.getParameter("type1");
         String type2 = request.getParameter("type2");
         String type3 = request.getParameter("type3");
 
@@ -35,7 +35,7 @@
         String library = request.getParameter("library");
         String start_year = request.getParameter("start");
         String end_year = request.getParameter("end");
-    		try{
+        try{
           //기본 검색
           String sql = "select book_id, book_name, author_name, publisher, publish_year, lib_name ,"
           +" case when loan_stat = '1' then '대출가능' else '대출 중' end as stat"
@@ -71,7 +71,7 @@
           sql = sql + " order by book_id";
 
           stmt = conn.createStatement();
-	  			rs = stmt.executeQuery(sql);
+          rs = stmt.executeQuery(sql);
           out.println("<tr>");
           out.println("<th>등록번호</th>");
           out.println("<th>서명</th>");
@@ -84,41 +84,41 @@
           String book_id_check = "";
           while(rs.next()){
             String book_id = rs.getString("book_id");
-    				String book = rs.getString("book_name");
-    				String author = rs.getString("author_name");
-    				String publisher = rs.getString("publisher");
-    				String publish_year = rs.getString("publish_year");
-    				String lib = rs.getString("lib_name");
+            String book = rs.getString("book_name");
+            String author = rs.getString("author_name");
+            String publisher = rs.getString("publisher");
+            String publish_year = rs.getString("publish_year");
+            String lib = rs.getString("lib_name");
             String stat = rs.getString("stat");
             if(!book_id.equals(book_id_check)){
-    	%>
-    	<tr class="datarow">
+      %>
+      <tr class="datarow">
         <td class="book_id"><%=book_id %></td>
-    		<td><%=book %></td>
-    		<td><%=author %></td>
-    		<td><%=publisher %></td>
-    		<td><%=publish_year %></td>
-    		<td><%=lib %></td>
+        <td><%=book %></td>
+        <td><%=author %></td>
+        <td><%=publisher %></td>
+        <td><%=publish_year %></td>
+        <td><%=lib %></td>
         <td class="stat"><%=stat %></td>
-    	</tr>
-    	<%
+      </tr>
+      <%
               book_id_check = book_id;
             }
 
-    			}
+          }
 
-    		}catch (SQLException ex){
-    			out.println("테이블 호출이 실패했습니다.<br>");
-    			out.println("SQLException:"+ex.getMessage());
-    		}finally{
-    			if(rs!=null)
-    				rs.close();
-    			if(stmt!=null)
-    				stmt.close();
-    			if(conn!=null)
-    				conn.close();
-    		}
-    	%>
+        }catch (SQLException ex){
+          out.println("테이블 호출이 실패했습니다.<br>");
+          out.println("SQLException:"+ex.getMessage());
+        }finally{
+          if(rs!=null)
+            rs.close();
+          if(stmt!=null)
+            stmt.close();
+          if(conn!=null)
+            conn.close();
+        }
+      %>
     </table>
     <%
     if (member_id != null){
