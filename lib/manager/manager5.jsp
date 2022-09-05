@@ -7,18 +7,18 @@
   </head>
   <body>
     <%@ include file="../dbconn.jsp" %>
-    	<%
-    		request.setCharacterEncoding("utf-8");
+      <%
+        request.setCharacterEncoding("utf-8");
 
-    		ResultSet rs = null;
-    		Statement stmt = null;
+        ResultSet rs = null;
+        Statement stmt = null;
 
         String values[] = request.getParameterValues("check");
         if(values == null){
           out.println("선택된 책이 없습니다.<br>");
         }
         else{
-      		try{
+          try{
             //수령한 책들 대출상태로 변경
             for(int i = 0; i < values.length; i++){
               String sql = "select member_id, books.book_id as bookid from book_reservation inner join books on book_reservation.book_id = books.book_id inner join book_information on books.isbn = book_information.isbn where reservation_end > sysdate and reservation_end < sysdate + 1 and books.book_id ="+ values[i];
@@ -35,19 +35,19 @@
               rs = stmt.executeQuery(sql);
               out.println("대출이 완료되었습니다.");
             }
-      		}catch (SQLException ex){
-      			out.println("테이블 호출이 실패했습니다.<br>");
-      			out.println("SQLException:"+ex.getMessage());
-      		}finally{
-      			if(rs!=null)
-      				rs.close();
-      			if(stmt!=null)
-      				stmt.close();
-      			if(conn!=null)
-      				conn.close();
-      		}
+          }catch (SQLException ex){
+            out.println("테이블 호출이 실패했습니다.<br>");
+            out.println("SQLException:"+ex.getMessage());
+          }finally{
+            if(rs!=null)
+              rs.close();
+            if(stmt!=null)
+              stmt.close();
+            if(conn!=null)
+              conn.close();
+          }
         }
-    	%>
+      %>
     <br>
     <a href="../main.jsp">메인으로 돌아가기</a>
   </body>

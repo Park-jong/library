@@ -32,20 +32,20 @@
         while(rs.next()){
           String member_id = rs.getString("member_id");
           String book_id = rs.getString("bookid");
-  				String book = rs.getString("book_name");
-  				String publisher = rs.getString("publisher");
-  				String publish_year = rs.getString("publish_year");
-  	%>
-  	<tr>
+          String book = rs.getString("book_name");
+          String publisher = rs.getString("publisher");
+          String publish_year = rs.getString("publish_year");
+    %>
+    <tr>
       <td><input type="checkbox" value="<%=book_id%>" name="check"/></td>
       <td><%=member_id %></td>
       <td><%=book_id %></td>
-  		<td><%=book %></td>
-  		<td><%=publisher %></td>
-  		<td><%=publish_year %></td>
-  	</tr>
-  	<%
-  			}
+      <td><%=book %></td>
+      <td><%=publisher %></td>
+      <td><%=publish_year %></td>
+    </tr>
+    <%
+        }
 
       }catch (SQLException ex){
         out.println("테이블 호출이 실패했습니다.<br>");
