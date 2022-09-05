@@ -1,12 +1,12 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.sql.*"%>
 
 <html>
-  <head>
-  </head>
-  <body>
-    <%@ include file="dbconn.jsp" %>
-    	<%
+<head>
+</head>
+<body>
+	<%@ include file="dbconn.jsp"%>
+	<%
       //대출 페이지
     		request.setCharacterEncoding("utf-8");
 
@@ -84,7 +84,7 @@
       		}
         }
     	%>
-    <br>
-    <a href="main.jsp">메인으로 돌아가기</a>
-  </body>
+	<br>
+	<a href="main.jsp">메인으로 돌아가기</a>
+</body>
 </html>

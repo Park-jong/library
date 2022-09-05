@@ -1,17 +1,17 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.sql.*"%>
 
 <html>
-  <head>
-  </head>
-  <body>
-    <%@ include file="dbconn.jsp"%> 
-    <%//연장 신청 결과%>
-    	<%
-    		request.setCharacterEncoding("utf-8");
+<head>
+</head>
+<body>
+	<%@ include file="dbconn.jsp"%>
+	<%//연장 신청 결과%>
+	<%
+    	request.setCharacterEncoding("utf-8");
 
-    		ResultSet rs = null;
-    		Statement stmt = null;
+    	ResultSet rs = null;
+    	Statement stmt = null;
 
         String member_id = (String)session.getAttribute("id");
         //올바르지 않은 접근 login으로
@@ -70,7 +70,7 @@
       		}
         }
     	%>
-    <br>
-    <a href="main.jsp">메인으로 돌아가기</a>
-  </body>
+	<br>
+	<a href="main.jsp">메인으로 돌아가기</a>
+</body>
 </html>

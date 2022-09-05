@@ -1,13 +1,13 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.sql.*"%>
 <html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="main.css">
+<meta charset="utf-8">
+<link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <%@ include file="dbconn.jsp" %>
-  <%
+	<%@ include file="dbconn.jsp"%>
+	<%
     request.setCharacterEncoding("utf-8");
     String member_id = (String)session.getAttribute("id");
     if(member_id != null){
@@ -52,25 +52,26 @@
       out.println("<button onclick=\"location.href='logout.jsp'\">로그아웃</button>");
     }
   %>
-  <button onclick="location.href='search.html'">도서 검색</button>
-  <button onclick="location.href='loan.html'">도서 대출</button>
-  <button onclick="location.href='extension.jsp'">대출 연장</button>
-  <button onclick="location.href='reservation.html'">도서 예약</button>
-  <button onclick="location.href='cancel.jsp'">예약 취소</button>
-  <button onclick="location.href='return.jsp'">도서 반납</button>
-  <button onclick="location.href='record.html'">대출기록</button>
-  <button onclick="location.href='mutual.html'">상호대차신청</button>
-  <button onclick="location.href='mutual_cancel.jsp'">상호대차취소</button>
-  <p></p>
-  <div id="manageroption">
-    <p>관리자메뉴</p>
-    <p>
-      <button onclick="location.href='./manager/signup.html'">회원 등록</button>
-      <button onclick="location.href='./manager/manager1.jsp'">상호대차도착</button>
-      <button onclick="location.href='./manager/manager3.jsp'">새로고침</button>
-      <button onclick="location.href='./manager/manager4.jsp'">예약수령</button>
-      <button onclick="location.href='./manager/manager6.jsp'">상호대차수령</button>
-    </p>
-  </div>
+	<button onclick="location.href='search.html'">도서 검색</button>
+	<button onclick="location.href='loan.html'">도서 대출</button>
+	<button onclick="location.href='extension.jsp'">대출 연장</button>
+	<button onclick="location.href='reservation.html'">도서 예약</button>
+	<button onclick="location.href='cancel.jsp'">예약 취소</button>
+	<button onclick="location.href='return.jsp'">도서 반납</button>
+	<button onclick="location.href='record.html'">대출기록</button>
+	<button onclick="location.href='mutual.html'">상호대차신청</button>
+	<button onclick="location.href='mutual_cancel.jsp'">상호대차취소</button>
+	<p></p>
+	<div id="manageroption">
+		<p>관리자메뉴</p>
+		<p>
+			<button onclick="location.href='./manager/signup.html'">회원
+				등록</button>
+			<button onclick="location.href='./manager/manager1.jsp'">상호대차도착</button>
+			<button onclick="location.href='./manager/manager3.jsp'">새로고침</button>
+			<button onclick="location.href='./manager/manager4.jsp'">예약수령</button>
+			<button onclick="location.href='./manager/manager6.jsp'">상호대차수령</button>
+		</p>
+	</div>
 </body>
 </html>
