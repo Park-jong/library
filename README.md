@@ -7,6 +7,9 @@
 * jsp2.3
 * Apache Tomcat/9.0.46
 
+## 진행 날짜
+* 2021.06 ~ 2021.06
+
 ## ER Diagram
 <image src='https://user-images.githubusercontent.com/54964209/187164836-9b897864-5ea2-492e-bf56-a501b258aac8.png'>
 
